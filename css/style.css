@@ -616,6 +616,7 @@ figure {
   background-attachment: fixed;
   background-size: cover;
   position: relative;
+  background-position: center center!important;
 }
 .fh5co-parallax .overlay {
   position: absolute;
