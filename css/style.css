@@ -78,12 +78,14 @@ figure {
 .fh5co-hero {
   position: relative;
   height: 800px;
+  height: 580px;
   text-align: center;
 }
 @media screen and (max-width: 768px) {
   .fh5co-cover,
   .fh5co-hero {
     height: 700px;
+    height: 580px;
   }
 }
 .fh5co-cover.fh5co-hero-2,
@@ -1426,9 +1428,12 @@ h2.hero-title{
   pointer-events: none;
 }
 
-@media(max-width:1024px){
+@media(max-width:1600px){
   #logo-cover{
     display: none;
+  }
+  .hero-title b{
+    color:#DA1212;
   }
 }
 
