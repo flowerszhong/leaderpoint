@@ -756,8 +756,6 @@ figure {
 
 .team-section-grid {
   position: relative;
-  background-size: cover;
-  height: 450px;
   margin-bottom: 30px;
   overflow: hidden;
   background-position: center center;
@@ -1444,4 +1442,61 @@ h2.hero-title{
 ##fh5co-logo{
   position: relative;
   z-index: 9999;
+}
+
+
+
+
+.team-section-grid{
+   margin-bottom: 2em;
+  padding: 10px;
+  background: #fff;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    -ms-border-radius: 4px;
+    border-radius: 4px;
+    -webkit-transition: 0.3s;
+    -o-transition: 0.3s;
+    transition: 0.3s;
+}
+
+.team-section-grid:hover, .team-section-grid:focus {
+  -webkit-box-shadow: 0px 6px 55px -23px rgba(0, 0, 0, 0.72);
+  -moz-box-shadow: 0px 6px 55px -23px rgba(0, 0, 0, 0.72);
+  box-shadow: 0px 6px 55px -23px rgba(0, 0, 0, 0.72);
+}
+
+.team-section-grid img{
+  width: 100%;
+}
+
+h3.grid-title{
+  margin: 10px 0 0 0;
+  line-height: 40px;
+  height: 40px;
+  overflow: hidden;
+}
+
+.lp-advantage .paras{
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.alist{
+  margin-top: 10px;
+  margin-right: 10px;
+  margin-left: 0;
+  font-size: 14px;
+  line-height: 24px;
+  text-align: left;
+}
+
+.alist li{
+  border-bottom: 1px dashed lightblue;
+  margin: 5px 0;
+}
+
+h3.a-title{
+  margin-bottom: 10px;
+  margin-top: 5px;
 }
