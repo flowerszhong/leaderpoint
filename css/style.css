@@ -633,7 +633,7 @@ figure {
 @media screen and (max-width: 768px) {
   .fh5co-parallax {
     height: inherit;
-    padding: 4em 0;
+    /* padding: 4em 0; */
   }
 }
 .fh5co-parallax .fh5co-intro h1 {
@@ -1499,4 +1499,27 @@ h3.grid-title{
 h3.a-title{
   margin-bottom: 10px;
   margin-top: 5px;
+}
+
+.a-grid{
+  min-height: 560px;
+}
+
+@media(max-width:400px) {
+  #fh5co-logo{
+    font-size: 24px;
+  }
+}
+
+#lp-classes-section p,
+#fh5co-team-section p{
+  text-indent: 2em;
+}
+
+#fh5co-team-section blockquote p{
+  text-indent: 0;
+}
+
+#fh5co-team-section blockquote{
+  margin-left: 2em;
 }
