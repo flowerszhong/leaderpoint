@@ -325,7 +325,7 @@ figure {
 #fh5co-logo a {
   position: relative;
 }
-#fh5co-logo a:after {
+#fh5co-logo2 a:after {
   position: absolute;
   content: '';
   top: -5px;
@@ -1522,4 +1522,11 @@ h3.a-title{
 
 #fh5co-team-section blockquote{
   margin-left: 2em;
+}
+
+
+#fh5co-logo img{
+  max-width: 200px;
+  margin-top: -10px;
+  margin-left: 10px;
 }
