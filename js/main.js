@@ -151,7 +151,7 @@
 
 
 	var applyCourse = function(){
-		$('.team-section-grid a').on('click',function(e){
+		$('.team-section-grid a,.btn-apply').on('click',function(e){
 			e.preventDefault();
 			alert('申请成功，感谢您的关注！');
 		});
