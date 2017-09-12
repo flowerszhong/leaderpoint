@@ -802,7 +802,8 @@ figure {
   bottom: 0;
   left: 0;
   right: 0;
-  padding: 30px;
+  /*padding: 30px;*/
+  padding: 10px;
 }
 .team-section-grid:hover .overlay-section {
   bottom: 0;
@@ -1533,4 +1534,10 @@ h3.a-title{
 
 .smallfont{
   font-size: 11px;
+}
+
+.site-desc{
+  margin: 20px auto;
+  color:#fff;
+  max-width: 550px;
 }

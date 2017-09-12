@@ -123,6 +123,7 @@
 
 		} , { offset: '85%' } );
 	};
+
 	
 
 	var scheduleTab = function() {
@@ -148,6 +149,20 @@
 		});
 	};
 
+
+	var applyCourse = function(){
+		$('.team-section-grid a').on('click',function(e){
+			e.preventDefault();
+			alert('申请成功，感谢您的关注！');
+		});
+
+
+		$('.btn-send-message').on('click',function(e){
+			e.preventDefault();
+			alert('表单已经提交，感谢您的参与!');
+		});
+	}
+
 	// Document on load.
 	$(function(){
 		mainMenu();
@@ -156,6 +171,15 @@
 		mobileMenuOutsideClick();
 		contentWayPoint();
 		scheduleTab();
+		applyCourse();
+		if($.fn.typeIt){
+			$('#site-desc').typeIt({
+				speed: 150,
+				autoStart: true
+			});
+		}
+		
+	
 	});
 
 
