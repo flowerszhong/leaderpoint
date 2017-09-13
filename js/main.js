@@ -172,12 +172,12 @@
 		contentWayPoint();
 		scheduleTab();
 		applyCourse();
-		if($.fn.typeIt){
-			$('#site-desc').typeIt({
-				speed: 150,
-				autoStart: true
-			});
-		}
+		// if($.fn.typeIt){
+		// 	$('#site-desc').typeIt({
+		// 		speed: 150,
+		// 		autoStart: true
+		// 	});
+		// }
 		
 	
 	});
