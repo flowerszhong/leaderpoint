@@ -7,6 +7,7 @@ require 'phpmailer/src/PHPMailer.php';
 require 'phpmailer/src/SMTP.php';
 
 $mail = new PHPMailer();
+$mail->CharSet = "UTF-8";
 $body = "<h1>欢迎大家来到慕课网学习，我们一起共同进步</h1>"; //设置smtp参数 
 $mail->IsSMTP();
 $mail->SMTPAuth = true;
