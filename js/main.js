@@ -126,28 +126,11 @@
 
 	
 
-	var scheduleTab = function() {
-		$('.schedule-container').css('height', $('.schedule-content.active').outerHeight());
-
-		$(window).resize(function(){
-			$('.schedule-container').css('height', $('.schedule-content.active').outerHeight());
-		});
-
-		$('.schedule a').on('click', function(event) {
-			
-			event.preventDefault();
-
-			var $this = $(this),
-				sched = $this.data('sched');
-
-			$('.schedule a').removeClass('active');
-			$this.addClass('active');
-			$('.schedule-content').removeClass('active');
-
-			$('.schedule-content[data-day="'+sched+'"]').addClass('active');
-
-		});
-	};
+	
+	function validateEmail(email) {
+		var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+		return re.test(email);
+	}
 
 
 	var applyCourse = function(){
@@ -159,7 +142,43 @@
 
 		$('.btn-send-message').on('click',function(e){
 			e.preventDefault();
-			alert('表单已经提交，感谢您的参与!');
+			var name = $.trim($('.contact-form #name').val());
+			var email = $.trim($('.contact-form #email').val());
+			var msg = $.trim($('.contact-form #message').val());
+			if(name == "" || email == "" || msg == ""){
+				alert('请将表单填写完整！');
+				return;
+			}
+			if(name.length>20){
+				alert('您填写的姓名长度过长！');
+			}
+
+			if(!validateEmail(email)){
+				alert('请输入正确的邮箱格式！');
+				return;
+			}
+
+			if(msg.length>320){
+				alert('您的留言过长，请减少至300个字符以内！')
+			}
+
+			$.ajax({
+				method: "POST",
+				url: "sendemail2.php",
+				data: { 'name': name, 'email': email, 'msg': msg },
+				dataType: 'json'
+			})
+			.done(function( msg ) {
+				if(msg && msg.ok){
+					alert('留言成功！感谢您的留言，我们会尽快回复您。');
+				}else{
+					alert('留言失败！邮件服务器故障，请稍后留言或直接发送邮件！');
+				}
+			})
+			.fail(function () {  
+				alert('感谢您的关注！邮件服务器故障，请稍后留言或直接发送邮件！')
+			});
+
 		});
 	}
 
@@ -170,7 +189,6 @@
 		offcanvas();
 		mobileMenuOutsideClick();
 		contentWayPoint();
-		scheduleTab();
 		applyCourse();
 		// if($.fn.typeIt){
 		// 	$('#site-desc').typeIt({
