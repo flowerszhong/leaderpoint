@@ -145,9 +145,13 @@
 		});
 
 		$('#page-cover,#btn-cancel').on('click',function(){
+			hideModal();
+		});
+
+		function hideModal() {
 			$("#page-cover").hide();
 			$('#apply-panel').hide();
-		});
+		}
 
 
 		$('#btn-submit').on('click',function(e){
@@ -211,6 +215,7 @@
 				}else{
 					alert(alerts.fail);
 				}
+				hideModal();
 			})
 			.fail(function () {  
 				alert(alerts.error)
