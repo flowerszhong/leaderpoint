@@ -28,20 +28,22 @@ function sendemail($email,$name,$msg)
     $mail->Username = "srxhzyh@163.com";
     $mail->Password = "lp163mail";#注意这里要填写授权码就是我在上面网易邮箱开启SMTP中提到的，不能填邮箱登录的密码哦。 
      //设置发送方，最好不要伪造地址 
-    $mail->From = "srxhzyh@163.com";
-    $mail->FromName = "领博邮件客户端";
-    $mail->Subject = "客户[". $name ."]发来消息";
-    $mail->AltBody = $body;
-    $mail->WordWrap = 80; // set word wrap
-    $mail->MsgHTML($body); 
-    //设置回复地址
-    $mail->AddReplyTo($email, $name); 
-    //添加附件，此处附件与脚本位于相同目录下否则填写完整路径 
-    //附件的话我就注释掉了 
-    #$mail->AddAttachment("attachment.jpg"); 
-    #$mail->AddAttachment("attachment.zip"); 
-    //设置邮件接收方的邮箱和姓名
-    $mail->AddAddress("327261136@qq.com", "leaderpoint"); 
+     $mail->From = "srxhzyh@163.com";
+     $mail->FromName = "领博邮件客户端";
+     $mail->Subject = "客户[". $name ."]发来消息";
+     $mail->AltBody = $body;
+     $mail->WordWrap = 80; // set word wrap
+     $mail->MsgHTML($body); 
+     //设置回复地址
+     $mail->AddReplyTo($email, $email); 
+     //添加附件，此处附件与脚本位于相同目录下否则填写完整路径 
+     //附件的话我就注释掉了 
+     #$mail->AddAttachment("attachment.jpg"); 
+     #$mail->AddAttachment("attachment.zip"); 
+     //设置邮件接收方的邮箱和姓名
+    // $mail->AddAddress("327261136@163.com", "leaderpoint"); 
+    // $mail->addAddress('manj22@163.com','rock');
+    $mail->AddAddress("leaderpoint@163.com", "leaderpoint"); 
     //使用HTML格式发送邮件
     $mail->IsHTML(true); 
     //通过Send方法发送邮件
