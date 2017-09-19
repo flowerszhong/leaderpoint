@@ -134,23 +134,60 @@
 
 
 	var applyCourse = function(){
-		$('.team-section-grid a,.btn-apply').on('click',function(e){
+		$('.btn-apply').on('click',function(e){
 			e.preventDefault();
-			alert('申请成功，感谢您的关注！');
+			var title = this.title;
+			var msg = "申请：" + title + "课程";
+			$('#apply-message').val(msg);
+			$("#page-cover").show();
+			$('#apply-panel').show();
+
+		});
+
+		$('#page-cover,#btn-cancel').on('click',function(){
+			$("#page-cover").hide();
+			$('#apply-panel').hide();
 		});
 
 
-		$('.btn-send-message').on('click',function(e){
+		$('#btn-submit').on('click',function(e){
 			e.preventDefault();
 			var name = $.trim($('.contact-form #name').val());
 			var email = $.trim($('.contact-form #email').val());
 			var msg = $.trim($('.contact-form #message').val());
+
+			var alerts = {
+				'ok':'留言成功！感谢您的留言，我们会尽快回复您。',
+				'fail':'留言失败！邮件服务器故障，请稍后留言或直接发送邮件。',
+				'error':'感谢您的关注！邮件服务器故障，请稍后留言或直接发送邮件。'
+			};
+
+			sendAjax(name,email,msg,alerts);
+		});
+
+		$('#btn-submit-apply').on('click',function(e){
+			e.preventDefault();
+			var name = $.trim($('#apply-form #apply-name').val());
+			var email = $.trim($('#apply-form #apply-email').val());
+			var msg = $.trim($('#apply-form #apply-message').val());
+
+			var alerts = {
+				'ok':'申请课程成功！感谢您的申请，我们会尽快回复您。',
+				'fail':'申请课程失败！邮件服务器故障，请稍后申请或直接发送邮件。',
+				'error':'感谢您的关注！邮件服务器故障，请稍后申请或直接发送邮件。'
+			};
+			sendAjax(name,email,msg,alerts);
+			
+		});
+
+		function sendAjax(name,email,msg,alerts) {
 			if(name == "" || email == "" || msg == ""){
 				alert('请将表单填写完整！');
 				return;
 			}
 			if(name.length>20){
 				alert('您填写的姓名长度过长！');
+				return;
 			}
 
 			if(!validateEmail(email)){
@@ -158,8 +195,8 @@
 				return;
 			}
 
-			if(msg.length>320){
-				alert('您的留言过长，请减少至300个字符以内！')
+			if(msg.length>100){
+				alert('您的留言过长，请减少至100个字符以内！')
 			}
 
 			$.ajax({
@@ -170,16 +207,16 @@
 			})
 			.done(function( msg ) {
 				if(msg && msg.ok){
-					alert('留言成功！感谢您的留言，我们会尽快回复您。');
+					alert(alerts.ok);
 				}else{
-					alert('留言失败！邮件服务器故障，请稍后留言或直接发送邮件！');
+					alert(alerts.fail);
 				}
 			})
 			.fail(function () {  
-				alert('感谢您的关注！邮件服务器故障，请稍后留言或直接发送邮件！')
+				alert(alerts.error)
 			});
+		}
 
-		});
 	}
 
 	// Document on load.
