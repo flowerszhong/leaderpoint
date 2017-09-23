@@ -199,8 +199,8 @@
 				return;
 			}
 
-			if(msg.length>100){
-				alert('您的留言过长，请减少至100个字符以内！')
+			if(msg.length>80){
+				alert('您的留言过长，请减少至80个字符以内！')
 			}
 
 			$.ajax({
