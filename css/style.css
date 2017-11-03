@@ -636,6 +636,9 @@ figure {
     /* padding: 4em 0; */
   }
 }
+.fh5co-parallax .fh5co-intro{
+  height: 430px;
+}
 .fh5co-parallax .fh5co-intro h1 {
   color: #fff;
   font-size: 70px;
@@ -1618,4 +1621,10 @@ h3.a-title{
     left:5%;
     margin-left: 0;    
   }
+}
+
+
+.cutter{
+  clear: both;
+  height: 20px;
 }
